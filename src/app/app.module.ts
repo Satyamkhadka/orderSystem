@@ -1,18 +1,51 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { environment } from 'src/environments/environment';
+import { AngularFireModule } from '@angular/fire';
+import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuthModule } from '@angular/fire/auth';
 
-import { AppRoutingModule } from './app-routing.module';
+
+import { routes } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { IndexComponent } from './index/index.component';
+import { CompanySettingsComponent } from './company-settings/company-settings.component';
+import { AboutComponent } from './about/about.component';
+import { LoginComponent } from './login/login.component';
+import { AdminNavigationComponent } from './navigation/admin-navigation/admin-navigation.component';
+import { ClientNavigationComponent } from './navigation/client-navigation/client-navigation.component';
+import { FooterComponent } from './footer/footer.component';
+import { OfferingComponent } from './offering/offering/offering.component';
+import { AddOfferingComponent } from './offering/add-offering/add-offering.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+   declarations: [
+      AppComponent,
+      IndexComponent,
+      CompanySettingsComponent,
+      AboutComponent,
+      LoginComponent,
+      AdminNavigationComponent,
+      ClientNavigationComponent,
+      FooterComponent,
+      OfferingComponent,
+      AddOfferingComponent
+   ],
+   imports: [
+      BrowserModule,
+      HttpClientModule,
+      FormsModule,
+      ReactiveFormsModule,
+      AngularFireModule.initializeApp(environment.firebaseConfig),
+      AngularFirestoreModule,
+      AngularFireAuthModule,
+      routes
+   ],
+   providers: [],
+   bootstrap: [
+      AppComponent
+   ]
 })
 export class AppModule { }

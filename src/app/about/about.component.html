@@ -1,0 +1,142 @@
+<app-client-navigation></app-client-navigation>
+
+<!-- carousel -->
+
+<div id="slides" class="carousel slide" data-ride="carousel">
+  <ul class="carousel-indicators">
+    <li data-target="#slides" data-slide-to="0" class="active"></li>
+    <li data-target="#slides" data-slide-to="1"></li>
+    <li data-target="#slides" data-slide-to="2"></li>
+    <li data-target="#slides" data-slide-to="3"></li>
+  </ul>
+
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img class="img-fluid" src="../../assets/static_images/2.jpg" alt="">
+      <div class="carousel-caption">
+        <h1>{{introData['name'] || 'Loading a better Site For You!'  }}</h1>
+        <h3>{{introData['slogan'] || 'keep calm and wait.'}}</h3>
+        <button class="btn btn-outline-light btn-lg"> View</button>
+        <button class="btn btn-primary btn-lg"> GetStarted</button>
+
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img class="img-fluid" src="../../assets/static_images/1.jpg" alt="">
+    </div>
+    <div class="carousel-item">
+      <img class="img-fluid" src="../../assets/static_images/2.jpg" alt="">
+    </div>
+    <div class="carousel-item">
+      <img class="img-fluid" src="../../assets/static_images/1.jpg" alt="">
+    </div>
+
+  </div>
+
+</div>
+
+<!-- carousel -->
+
+<!-- team -->
+<div class="container-fluid padding">
+  <div class="row welcome text-center">
+    <div class="col-12">
+      <div class="display-4"> Meet the team</div>
+    </div>
+  </div>
+</div>
+<!-- team -->
+
+<!-- cards -->
+<div class="container-fluid padding">
+  <div class="row padding">
+    <div class="col-md-4">
+      <div class="card">
+        <img src="../../assets/static_images/2.jpg" alt="" class="img-fluid card-img-top">
+        <h4 class="card-title"> Satyam </h4>
+        <p class="card-text"> He is satyam</p>
+        <a href="#" class="btn btn-outline-secondary">See Profile</a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="../../assets/static_images/1.jpg" alt="" class="img-fluid card-img-top">
+        <h4 class="card-title"> Satyam </h4>
+        <p class="card-text"> He is satyam</p>
+        <a href="#" class="btn btn-outline-secondary">See Profile</a>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card">
+        <img src="../../assets/static_images/2.jpg" alt="" class="img-fluid card-img-top">
+        <h4 class="card-title"> Satyam </h4>
+        <p class="card-text"> He is satyam</p>
+        <a href="#" class="btn btn-outline-secondary">See Profile</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- cards -->
+
+
+
+<!-- footer -->
+<footer>
+  <div class="container-fluid padding">
+    <div class="row text-center">
+      <div class="col-md-4">
+        <hr class="light">
+
+        <img width="25px"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRckyrQg_cyYzD3m42dyFnbLHYXLVAJ2UXflt8ssSVrIL749sYU5A">
+        <hr class="light">
+        <p>{{detailData.street }}</p>
+        <p>{{detailData.area}}</p>
+        <p>{{detailData.country}}</p>
+
+      </div>
+      <div class="col-md-4">
+        <!-- connect -->
+        <div class="container-fluid padding">
+          <div class="row text-center align-items-center padding">
+            <div class="col-12">
+              <hr class="light">
+              <h2>Connect</h2>
+              <hr class="light">
+            </div>
+            <div class="col-sm-12 col-md-12 col-xl-6 social padding">
+              <a href="'#' || {{detailData.email}}"> <i class="fa fa-google"></i></a>
+              <a href="'#' || {{detailData.facebook}}"> <i class="fa fa-facebook"></i></a>
+            </div>
+            <div class="col-sm-12 col-md-12 col-xl-6 social padding">
+              <a href="'#' || {{detailData.instagram}}"> <i class="fa fa-twitter"></i></a>
+              <a href="'#' || {{detailData.website}}"> <i class="fa fa-instagram"></i></a>
+            </div>
+          </div>
+        </div>
+        <!-- connect -->
+      </div>
+
+      <div class="col-md-4">
+        <hr class="light">
+
+        <img width="25px"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRckyrQg_cyYzD3m42dyFnbLHYXLVAJ2UXflt8ssSVrIL749sYU5A">
+        <hr class="light">
+        <p>{{detailData.contact}}</p>
+        <p>{{detailData.contact1}}</p>
+
+      </div>
+
+
+    </div>
+  </div>
+
+  <!-- developed by -->
+  <hr class="light" width="100%">
+  <p class="light text-center p-4"> Developed By Satyam</p>
+  <!-- developed by -->
+
+</footer>
+<!-- footer -->

@@ -1,0 +1,43 @@
+<app-admin-navigation></app-admin-navigation>
+
+<div class="container-flex mr-3 ml-3 mt-5">
+  <div class="row">
+    <div class="col-sm-12 col-lg-12 col-md-12 col-xl-12">
+      <div class="card">
+        <div class="card-header">
+          <div class="container-flex">
+            <div class="row">
+              <div class="col-4"> <a routerLink="/admin" class="btn btn-sm btn-primary text-light mr-3">
+                  <i class="fa fa-arrow-left"></i> Back</a>
+                Add Product/Services</div>
+
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+
+
+          <form [formGroup]="offeringForm">
+            <label for="name">Name Of Company</label>
+            <input id="name" type="text" class="form-control mb-2" placeholder="Name of Company" required
+              formControlName="name">
+            <label for="slogan">Slogan</label>
+            <input id="slogan" type="text" class="form-control mb-2" placeholder="Slogan or Phrase" required
+              formControlName="category">
+
+            <div class="custom-file">
+              <input type="file" class="custom-file-input" id="customFile" accept=".jpg,.jpeg"
+                (change)="preview($event.target.files)">
+              <label class="custom-file-label" for="customFile">Choose
+                file</label>
+            </div>
+            <button class="btn btn-lg btn-primary btn-block mb-1" type="submit" (click)="a">Change</button>
+          </form>
+          <img [src]="imgURL" height="200" *ngIf="imgURL">
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>

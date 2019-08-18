@@ -1,0 +1,231 @@
+<app-admin-navigation></app-admin-navigation>
+<div class="container mt-5">
+  <div class="row padding">
+
+    <div class="col-sm-12 col-lg-12 col-md-12 col-xl-12">
+
+      <div class="card">
+        <div class="card-header text-center"> Change Company Profile(Header & Footer)</div>
+        <div class="card-body">
+
+          <div class="container">
+            <div class="row">
+              <!-- here -->
+              <div class="col-12 w-50">
+
+                <div class="card">
+
+                  <div data-toggle="collapse" data-target="#intro">
+                    <div class="card-header"> Company Introduction(Head)</div>
+                  </div>
+
+                  <div id="intro" class="collapse">
+                    <div class="card-body">
+                      <!-- body here -->
+                      <form [formGroup]="introForm">
+                        <label for="name">Name Of Company</label>
+                        <input id="name" type="text" class="form-control mb-2" placeholder="Name of Company" required
+                          formControlName="name">
+                        <label for="slogan">Slogan</label>
+                        <input id="slogan" type="text" class="form-control mb-2" placeholder="Slogan or Phrase" required
+                          formControlName="slogan">
+                        <button class="btn btn-lg btn-primary btn-block mb-1" type="submit"
+                          (click)="onIntroSubmit(introForm.value)">Change</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              <div class="col-12 w-50">
+
+                <div class="card">
+                  <div data-toggle="collapse" data-target="#details">
+                    <div class="card-header"> Company Details (Tail)</div>
+                  </div>
+
+                  <div id="details" class="collapse">
+
+                    <div class="card-body">
+
+                      <!-- body here -->
+                      <form [formGroup]="detailForm">
+                        <label for="address">Address</label>
+                        <div id="address" class="form-group">
+                          <small class="form-text text-muted"> Enter street details
+                          </small>
+                          <input type="text" class="form-control mb-2" placeholder="Street" required
+                            formControlName="street">
+                          <small class="form-text text-muted"> Enter Area address
+                          </small>
+                          <input type="text" class="form-control mb-2" placeholder="Area" required
+                            formControlName="area">
+                          <small class="form-text text-muted"> Enter Province and country
+                          </small>
+                          <input type="text" class="form-control mb-2" placeholder="Province and Country" required
+                            formControlName="country">
+                        </div>
+                        <label for="contact">Contact Us</label>
+                        <div id="contact" class="form-group">
+                          <small class="form-text text-muted"> Enter Primary Phone Number
+                          </small>
+                          <input type="text" class="form-control mb-2" placeholder="Phone Number" required
+                            formControlName="contact">
+                          <small class="form-text text-muted"> Enter Secondary Phone Number
+                          </small>
+                          <input type="text" class="form-control mb-2" placeholder="Alternative Number" required
+                            formControlName="contact1">
+
+                        </div>
+                        <label for="social">Social Links</label>
+                        <div id="social" class="form-group">
+                          <small class="form-text text-muted"> Enter Email
+                          </small>
+                          <input type="email" class="form-control mb-2" placeholder="Email" required
+                            formControlName="email">
+                          <small class="form-text text-muted"> Enter Facebook link
+                          </small>
+                          <input type="text" class="form-control mb-2" placeholder="Facebook Link" required
+                            formControlName="facebook">
+                          <small class="form-text text-muted"> Enter Instagram Link
+                          </small>
+                          <input type="text" class="form-control mb-2" placeholder="Instagram Link" required
+                            formControlName="instagram">
+                          <small class="form-text text-muted"> Enter Website Link
+                          </small>
+                          <input type="text" class="form-control mb-2" placeholder="Website" required
+                            formControlName="website">
+                        </div>
+                        <button class="btn btn-lg btn-primary btn-block mb-1" type="submit"
+                          (click)="onDetailSubmit(detailForm.value)">Change</button>
+                      </form>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+</div>
+
+
+
+<!-- another section -->
+
+
+<div class="container mt-5">
+  <div class="row padding">
+
+    <div class="col-sm-12 col-lg-12 col-md-12 col-xl-12">
+
+      <div class="card">
+        <div class="card-header text-center"> Change Company's description(Mid-Section)</div>
+        <div class="card-body">
+
+          <div class="container">
+            <div class="row">
+              <!-- here -->
+              <div class="col-12 w-50">
+
+                <div class="card">
+
+                  <div data-toggle="collapse" data-target="#firstContent">
+                    <div class="card-header"> First Text Container</div>
+                  </div>
+
+                  <div id="firstContent" class="collapse">
+                    <div class="card-body">
+                      <!-- body here -->
+                      <form [formGroup]="offeringForm">
+                        <label for="name">Title</label>
+                        <input id="name" type="text" class="form-control mb-2" placeholder="Title" required
+                          formControlName="title">
+                        <label for="slogan">Content</label>
+                        <input id="slogan" type="text" class="form-control mb-2" placeholder="Content" required
+                          formControlName="content">
+                        <button class="btn btn-lg btn-primary btn-block mb-1" type="submit"
+                          (click)="onOfferingSubmit(offeringForm.value)">Change</button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-12 w-50">
+
+                <div class="card">
+                  <div data-toggle="collapse" data-target="#whyus">
+                    <div class="card-header"> Why Us?</div>
+                  </div>
+
+                  <div id="whyus" class="collapse">
+
+                    <div class="card-body">
+
+                      <!-- body here -->
+                      <form [formGroup]="whyusForm">
+
+                        <div class="form-group">
+                          <small class="form-text text-muted"> Title
+                          </small>
+                          <input type="text" class="form-control mb-2" placeholder="Title" required
+                            formControlName="title">
+                          <small class="form-text text-muted"> Content
+                          </small>
+                          <input type="text" class="form-control mb-2" placeholder="Content" required
+                            formControlName="content">
+                        </div>
+                        <button class="btn btn-lg btn-primary btn-block mb-1" type="submit"
+                          (click)="onWhyusSubmit(whyusForm.value)">Change</button>
+                      </form>
+                    </div>
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+</div>
+<!-- <div class="card">
+  <div class="card-header">Sign in to continue</div>
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-4 text-center">
+        <img src="https://placeimg.com/128/128/tech/sepia">
+        <h4 class="text-center">Hunger & Debt Ltd</h4>
+      </div>
+      <div class="col-md-8">
+        <form class="form-signin">
+          <input type="text" class="form-control mb-2" placeholder="Email" required autofocus>
+          <input type="password" class="form-control mb-2" placeholder="Password" required>
+          <button class="btn btn-lg btn-primary btn-block mb-1" type="submit">Sign in</button>
+          <label class="checkbox float-left">
+            <input type="checkbox" value="remember-me">
+            Remember me
+          </label>
+          <a href="#" class="float-right">Need help?</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+ -->

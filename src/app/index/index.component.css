@@ -1,0 +1,93 @@
+/* You can add global styles to this file, and also import other style files */
+
+.carousel .img-fluid {
+  height: 90vh;
+  width: fit-content;
+  object-fit: cover;
+}
+
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%)
+}
+
+.carousel-caption h1 {
+
+  text-transform: uppercase;
+  text-shadow: 1px 1px 10px #000;
+  font-weight: 300;
+  line-height: 1.2;
+  font-size: 8vh;
+}
+
+.carousel-caption h3 {
+
+  text-transform: uppercase;
+  text-shadow: 1px 1px 10px #000;
+  font-size: 1rem;
+}
+
+.btn-primary:hover {
+  background-color: blueviolet;
+}
+
+.jumbotron {
+  padding: .1rem;
+  border-radius: 5;
+}
+
+.padding {
+  padding-bottom: 2rem;
+}
+
+.welcome {
+  width: 75%;
+  margin: 0 auto;
+  padding-top: 2rem;
+}
+
+.welcome hr {
+  border-top: 2px solid #b4b4b4;
+  width: 95%;
+  padding-bottom: 1.5rem;
+}
+
+.fa-code {
+  color: #e54d26
+}
+
+.fa-bold {
+  color: darkblue;
+}
+
+.fa-css {
+  color: purple;
+}
+
+.fa {
+  font-size: 4em;
+}
+
+.fun {
+  margin-bottom: 2rem;
+  margin-left: 12.5%;
+}
+
+.social a {
+  font-size: 100%;
+  padding: 1rem;
+
+}
+
+footer {
+  background-color: #3f3f3f;
+  color: #d5d5d5;
+}
+
+hr.light {
+  margin-top: .8rem;
+  margin-bottom: 1rem;
+  border-top: 2px solid;
+  width: 75%
+}
