@@ -5,13 +5,13 @@
 export const environment = {
   production: false,
   firebaseConfig: {
-    apiKey: 'AIzaSyBbUXdRuOCpxFgmne3-x8MZCrieRmEWeJo',
-    authDomain: 'ordersystem-fe8f2.firebaseapp.com',
-    databaseURL: 'https://ordersystem-fe8f2.firebaseio.com',
-    projectId: 'ordersystem-fe8f2',
-    storageBucket: 'ordersystem-fe8f2.appspot.com',
-    messagingSenderId: '247111822853',
-    appId: '1:247111822853:web:a88bf635e504cee2'
+    apiKey: 'AIzaSyDKLX7PX82jROs6AA0EoNGL-8PyyYLYkwQ',
+    authDomain: 'order-system-satyam.firebaseapp.com',
+    databaseURL: 'https://order-system-satyam.firebaseio.com',
+    projectId: 'order-system-satyam',
+    storageBucket: 'order-system-satyam.appspot.com',
+    messagingSenderId: '524483191474',
+    appId: '1:524483191474:web:2a0f49dfaac3f1d9'
   }
 };
 

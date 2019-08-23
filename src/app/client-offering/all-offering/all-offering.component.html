@@ -1,0 +1,94 @@
+<app-client-navigation></app-client-navigation>
+
+<div class="container-flex mr-3 ml-3 mt-5">
+  <div class="row">
+    <div class="col-12">
+      <div class="card bg-light">
+        <div class="card-header">
+          <div class="container-flex">
+            <div class="row">
+              <div class="col-6 mt-1">Offerings</div>
+              <!-- <div class="col-6"> <a routerLink="/add-offering" class="btn btn-sm btn-primary text-light float-right">
+                  Add<i class="fa fa-plus pl-2"></i></a></div> -->
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="container-flex">
+            <div class="row">
+
+
+
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5"
+                *ngFor="let element of offeringData; let i = index;">
+                <div class="card border border-info">
+                  <img class="card-img-top pt-1 pl-1 pr-1" aria-label="View more" [src]="element['downloadURL']"
+                    alt="Card image cap" (click)="onOfferingSelect(element['id'])">
+                  <div class="card-body">
+                    <h5 class="card-title text-center">{{element['name']}}</h5>
+                    <!-- <a class="btn btn-success w-50" data-toggle="modal" data-target="#exampleModalCenter"
+                      (click)="setEdit(i)">Edit<i class="fa fa-pencil pl-2"></i></a>
+                    <a class="btn btn-danger w-50" (click)="onDelete(element.id)">Delete<i
+                        class="fa fa-trash pl-2"></i></a> -->
+                    <a class="btn btn-warning w-100 mt-1" data-toggle="modal" data-target="#viewModalCenter"
+                      (click)="setView(i)">View Full<i class="fa fa-eye pl-2"></i></a>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- View Modal -->
+<div class="modal fade" id="viewModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-flex">
+          <div class="row">
+
+
+
+            <div class="col-12">
+              <div class="card">
+                <img class="card-img-top" [src]="offeringView['downloadURL']" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title text-center">{{offeringView['name']}}</h5>
+
+                  <ul class="list-group">
+                    <li class="list-group-item list-group-item-warning">Price:{{ offeringView['price'] }}</li>
+                    <li class="list-group-item list-group-item-danger">Discount:{{offeringView['discount']}} !</li>
+                    <li class="list-group-item list-group-item-success">
+                      Offer Price: {{offeringView['price']-offeringView['discount']}}</li>
+                    <li class="list-group-item list-group-item-info">{{offeringView['shortDescription']}}</li>
+
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>

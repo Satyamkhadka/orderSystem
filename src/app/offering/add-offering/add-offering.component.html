@@ -7,7 +7,7 @@
         <div class="card-header">
           <div class="container-flex">
             <div class="row">
-              <div class="col-4"> <a routerLink="/admin" class="btn btn-sm btn-primary text-light mr-3">
+              <div class="col-12"> <a routerLink="/admin" class="btn btn-sm btn-primary text-light mr-3">
                   <i class="fa fa-arrow-left"></i> Back</a>
                 Add Product/Services</div>
 
@@ -18,22 +18,49 @@
 
 
           <form [formGroup]="offeringForm">
-            <label for="name">Name Of Company</label>
-            <input id="name" type="text" class="form-control mb-2" placeholder="Name of Company" required
+            <small class="form-text text-muted"> name </small>
+            <input id="name" type="text" class="form-control mb-2 w-100" placeholder="name" required
               formControlName="name">
-            <label for="slogan">Slogan</label>
-            <input id="slogan" type="text" class="form-control mb-2" placeholder="Slogan or Phrase" required
+
+            <small class="form-text text-muted"> price </small>
+            <input id="price" type="number" class="form-control mb-2 w-100" placeholder="price" required
+              formControlName="price">
+
+            <small class="form-text text-muted"> discount </small>
+            <input id="discount" type="number" class="form-control mb-2" placeholder="discount" required
+              formControlName="discount">
+
+            <!-- <small class="form-text text-muted"> name </small>
+            <input id="name" type="text" class="form-control mb-2" placeholder="name" required formControlName="name"> -->
+
+            <small class="form-text text-muted"> shortDescription </small>
+            <input id="shortDescription" type="textarea" class="form-control mb-2" placeholder="shortDescription"
+              required formControlName="shortDescription">
+
+            <small class="form-text text-muted"> keyword </small>
+            <input id="keyword" type="text" class="form-control mb-2" placeholder="keyword" required
+              formControlName="keyword">
+
+            <small class="form-text text-muted"> description </small>
+            <input id="description" type="textarea" class="form-control mb-2" placeholder="description" required
+              formControlName="description">
+
+
+            <small class="form-text text-muted"> category </small>
+            <input id="category" type="text" class="form-control mb-2" placeholder="Slogan or Phrase" required
               formControlName="category">
 
-            <div class="custom-file">
-              <input type="file" class="custom-file-input" id="customFile" accept=".jpg,.jpeg"
+            <small class="form-text text-muted"> subCategory </small>
+            <input id="subCategory" type="text" class="form-control mb-2" placeholder="subCategory" required
+              formControlName="subCategory">
+            <div class="custom-file mb-4">
+              <input type="file" class="custom-file-input" id="customFile" accept=".jpg,.jpeg" multiple
                 (change)="preview($event.target.files)">
-              <label class="custom-file-label" for="customFile">Choose
-                file</label>
+              <label class="custom-file-label" for="customFile"> {{fileName}}</label>
             </div>
-            <button class="btn btn-lg btn-primary btn-block mb-1" type="submit" (click)="a">Change</button>
+            <button class="btn btn-lg btn-primary btn-block mb-1" type="submit"
+              (click)="onOfferingSubmit(offeringForm.value)">Create</button>
           </form>
-          <img [src]="imgURL" height="200" *ngIf="imgURL">
         </div>
 
 

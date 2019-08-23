@@ -8,9 +8,9 @@
         <img width="25px"
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRckyrQg_cyYzD3m42dyFnbLHYXLVAJ2UXflt8ssSVrIL749sYU5A">
         <hr class="light">
-        <p>{{detailData.street }}</p>
-        <p>{{detailData.area}}</p>
-        <p>{{detailData.country}}</p>
+        <p>{{detailData['street'] }}</p>
+        <p>{{detailData['area']}}</p>
+        <p>{{detailData['country']}}</p>
 
       </div>
       <div class="col-md-4">
@@ -23,12 +23,12 @@
               <hr class="light">
             </div>
             <div class="col-sm-12 col-md-12 col-xl-6 social padding">
-              <a href="'#' || {{detailData.email}}"> <i class="fa fa-google"></i></a>
-              <a href="'#' || {{detailData.facebook}}"> <i class="fa fa-facebook"></i></a>
+              <a href="'#' || {{detailData['email']}}"> <i class="fa fa-google"></i></a>
+              <a href="'#' || {{detailData['facebook']}}"> <i class="fa fa-facebook"></i></a>
             </div>
             <div class="col-sm-12 col-md-12 col-xl-6 social padding">
-              <a href="'#' || {{detailData.instagram}}"> <i class="fa fa-twitter"></i></a>
-              <a href="'#' || {{detailData.website}}"> <i class="fa fa-instagram"></i></a>
+              <a href="'#' || {{detailData['instagram']}}"> <i class="fa fa-twitter"></i></a>
+              <a href="'#' || {{detailData['website']}}"> <i class="fa fa-instagram"></i></a>
             </div>
           </div>
         </div>
@@ -41,9 +41,9 @@
         <img width="25px"
           src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRckyrQg_cyYzD3m42dyFnbLHYXLVAJ2UXflt8ssSVrIL749sYU5A">
         <hr class="light">
-        <p>{{detailData.contact}}</p>
-        <p>{{detailData.contact1}}</p>
-        <p>{{detailData.email}}</p>
+        <p>{{detailData['contact']}}</p>
+        <p>{{detailData['contact1']}}</p>
+        <p>{{detailData['email']}}</p>
 
 
       </div>

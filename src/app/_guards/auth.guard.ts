@@ -20,19 +20,20 @@ export class AuthGuard implements CanActivate {
 
                 if (currentUser) {
                     // authorised so return true
-                    console.log(currentUser);
+                    //  console.log(currentUser);
                     if (firebase.auth()['currentUser']['email'] === CompanyConfig.adminEmail) {
+                        // if (firebase.auth()['currentUser']['email']) {
                         observer.next(true);
                         observer.complete();
                     } else {
                         // not logged in so redirect to login page with the return url
-                        this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
+                        this.router.navigateByUrl('/login', { queryParams: { returnUrl: state.url } });
                         observer.next(false);
                         observer.complete();
                     }
                 } else {
                     // not logged in so redirect to login page with the return url
-                    this.router.navigate(['/login'], { queryParams: { returnUrl: state.url } });
+                    this.router.navigateByUrl('/login', { queryParams: { returnUrl: state.url } });
                     observer.next(false);
                     observer.complete();
                 }

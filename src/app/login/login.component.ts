@@ -15,16 +15,16 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.toForward = this.route.snapshot.queryParams['returnUrl'] || '/';
   }
-  google() {
-    this.fireauthService.doGoogleLogin().then(data => {
+  async google() {
+    await this.fireauthService.doGoogleLogin().then(data => {
       console.log(data);
       this.router.navigate([this.toForward]);
     }).catch(err => {
       console.log(err);
     });
   }
-  facebook() {
-    this.fireauthService.doFacebookLogin().then(data => {
+  async facebook() {
+    await this.fireauthService.doFacebookLogin().then(data => {
       this.router.navigate([this.toForward]);
     }).catch(err => {
       console.log(err);

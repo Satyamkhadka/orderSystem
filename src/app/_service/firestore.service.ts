@@ -52,18 +52,51 @@ export class FirestoreService {
       .set(data, { merge: true });
   }
 
-  createOffering(data) {
+  async createOfferingText(data): Promise<any> {
+    return new Promise<any>((resolve, reject) => {
+      this.firestore
+        .collection('offering_data_text')
+        .add(data)
+        .then(res => {
+          resolve();
+        }, err => reject(err));
+    });
+  }
+
+  getOfferingText() {
+    return this.firestore.collection('offering_data_text').snapshotChanges();
+  }
+  updateOfferingText(data) {
+    const id = data.id;
+    delete data.id;
+    return this.firestore
+      .collection('offering_data_text')
+      .doc(id)
+      .set(data, { merge: true });
+  }
+
+
+
+
+
+
+  async createOffering(data): Promise<any> {
     return new Promise<any>((resolve, reject) => {
       this.firestore
         .collection('offering_data')
         .add(data)
         .then(res => {
+          resolve();
         }, err => reject(err));
     });
   }
 
   getOffering() {
     return this.firestore.collection('offering_data').snapshotChanges();
+  }
+
+  getOneOffering(id) {
+    return this.firestore.collection('offering_data').doc(id).get();
   }
   updateOffering(data) {
     const id = data.id;
@@ -72,6 +105,10 @@ export class FirestoreService {
       .collection('offering_data')
       .doc(id)
       .set(data, { merge: true });
+  }
+
+  deleteOffering(id) {
+    return this.firestore.collection('offering_data').doc(id).delete();
   }
 
   createWhyus(data) {
@@ -95,5 +132,6 @@ export class FirestoreService {
       .doc(id)
       .set(data, { merge: true });
   }
+
 
 }

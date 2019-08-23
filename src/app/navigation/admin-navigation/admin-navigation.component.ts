@@ -16,7 +16,7 @@ export class AdminNavigationComponent implements OnInit {
   logout() {
     this.fireauthService.logout().then(cb => {
       console.log(cb);
-      this.router.navigate(['/home']);
+      this.router.navigateByUrl('/home');
     }).catch(e => {
       console.log(e);
     });

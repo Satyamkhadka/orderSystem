@@ -1,6 +1,7 @@
 import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { FirestoreService } from '../_service/firestore.service';
+import swal from 'sweetalert2';
 @Component({
   selector: 'app-company-settings',
   templateUrl: './company-settings.component.html',
@@ -48,20 +49,44 @@ export class CompanySettingsComponent implements OnInit {
       title: [''],
       content: ['']
     });
-    this.getIntroData();
-    this.getDetailData();
-    this.getOfferingData();
-    this.getWhyusData();
+    // this.getIntroData();
+    // this.getDetailData();
+    // this.getOfferingData();
+    // this.getWhyusData();
   }
 
   onIntroSubmit(data) {
     if (this.introId === null || this.introId === '') {
       this.fireService.createIntro(data)
         .then(res => {
-          console.log(res);
+          swal.fire('Yeaa..', 'Company Details Successfully', 'success');
         });
     } else {
-      this.fireService.updateIntro(data);
+      swal.fire({
+        title: 'Are you sure?',
+        text: 'Update Info?',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, update it!',
+        cancelButtonText: 'No, keep as it is'
+      }).then((result) => {
+        if (result.value) {
+          this.fireService.updateIntro(data);
+          swal.fire(
+            'updated!',
+            'updated successfully',
+            'success'
+          );
+          // For more information about handling dismissals please visit
+          // https://sweetalert2.github.io/#handling-dismissals
+        } else if (result.dismiss === swal.DismissReason.cancel) {
+          swal.fire(
+            'Cancelled',
+            'update cancelled :)',
+            'error'
+          );
+        }
+      });
     }
   }
 
@@ -84,10 +109,35 @@ export class CompanySettingsComponent implements OnInit {
     if (this.detailId === null || this.detailId === '') {
       this.fireService.createDetail(data)
         .then(res => {
+          swal.fire('Yeaa..', 'Company Details Successfully', 'success');
           console.log(res);
         });
     } else {
-      this.fireService.updateDetail(data);
+      swal.fire({
+        title: 'Are you sure?',
+        text: 'Update Info?',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, update it!',
+        cancelButtonText: 'No, keep as it is'
+      }).then((result) => {
+        if (result.value) {
+          this.fireService.updateDetail(data);
+          swal.fire(
+            'updated!',
+            'updated successfully',
+            'success'
+          );
+          // For more information about handling dismissals please visit
+          // https://sweetalert2.github.io/#handling-dismissals
+        } else if (result.dismiss === swal.DismissReason.cancel) {
+          swal.fire(
+            'Cancelled',
+            'update cancelled :)',
+            'error'
+          );
+        }
+      });
     }
   }
 
@@ -113,17 +163,41 @@ export class CompanySettingsComponent implements OnInit {
 
   onOfferingSubmit(data) {
     if (this.offeringId === null || this.offeringId === '') {
-      this.fireService.createOffering(data)
+      this.fireService.createOfferingText(data)
         .then(res => {
-          console.log(res);
+          swal.fire('Yeaa..', 'Company Offerings Data Successfully', 'success');
         });
     } else {
-      this.fireService.updateOffering(data);
+      swal.fire({
+        title: 'Are you sure?',
+        text: 'Update Info?',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, update it!',
+        cancelButtonText: 'No, keep as it is'
+      }).then((result) => {
+        if (result.value) {
+          this.fireService.updateOfferingText(data);
+          swal.fire(
+            'updated!',
+            'updated successfully',
+            'success'
+          );
+          // For more information about handling dismissals please visit
+          // https://sweetalert2.github.io/#handling-dismissals
+        } else if (result.dismiss === swal.DismissReason.cancel) {
+          swal.fire(
+            'Cancelled',
+            'update cancelled :)',
+            'error'
+          );
+        }
+      });
     }
   }
 
   getOfferingData() {
-    this.fireService.getOffering().subscribe(data => {
+    this.fireService.getOfferingText().subscribe(data => {
       if (data[0]) {
         this.offeringData = data[0].payload.doc.data();
         this.offeringId = data[0].payload.doc.id;
@@ -139,10 +213,34 @@ export class CompanySettingsComponent implements OnInit {
     if (this.whyusId === null || this.whyusId === '') {
       this.fireService.createWhyus(data)
         .then(res => {
-          console.log(res);
+          swal.fire('Yeaa..', ' Data Generated Successfully', 'success');
         });
     } else {
-      this.fireService.updateWhyus(data);
+      swal.fire({
+        title: 'Are you sure?',
+        text: 'Update Info?',
+        type: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, update it!',
+        cancelButtonText: 'No, keep as it is'
+      }).then((result) => {
+        if (result.value) {
+          this.fireService.updateWhyus(data);
+          swal.fire(
+            'updated!',
+            'updated successfully',
+            'success'
+          );
+          // For more information about handling dismissals please visit
+          // https://sweetalert2.github.io/#handling-dismissals
+        } else if (result.dismiss === swal.DismissReason.cancel) {
+          swal.fire(
+            'Cancelled',
+            'update cancelled :)',
+            'error'
+          );
+        }
+      });
     }
   }
 

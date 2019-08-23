@@ -6,6 +6,8 @@ import { environment } from 'src/environments/environment';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
+import { AngularFireAuthGuardModule } from '@angular/fire/auth-guard';
+import { AngularFireStorageModule } from '@angular/fire/storage';
 
 
 import { routes } from './app-routing.module';
@@ -19,7 +21,8 @@ import { ClientNavigationComponent } from './navigation/client-navigation/client
 import { FooterComponent } from './footer/footer.component';
 import { OfferingComponent } from './offering/offering/offering.component';
 import { AddOfferingComponent } from './offering/add-offering/add-offering.component';
-
+import { OfferingViewComponent } from './client-offering/offering-view/offering-view.component';
+import { AllOfferingComponent } from './client-offering/all-offering/all-offering.component';
 @NgModule({
    declarations: [
       AppComponent,
@@ -31,9 +34,13 @@ import { AddOfferingComponent } from './offering/add-offering/add-offering.compo
       ClientNavigationComponent,
       FooterComponent,
       OfferingComponent,
-      AddOfferingComponent
+      AddOfferingComponent,
+      OfferingViewComponent,
+      AllOfferingComponent
    ],
    imports: [
+      AngularFireAuthGuardModule,
+      AngularFireStorageModule,
       BrowserModule,
       HttpClientModule,
       FormsModule,

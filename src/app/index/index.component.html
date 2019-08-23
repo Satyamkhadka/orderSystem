@@ -64,13 +64,12 @@
 <div class="container-fluid padding">
   <div class="row welcome text-center">
     <div class="col 12">
-      <h1 class="display-4">{{offeringData.title}}</h1>
+      <h1 class="display-4">{{offeringData['title']}}</h1>
     </div>
     <hr>
     <div class="col-12">
-      <div class="lead" [innerHTML]="offeringData.content"></div>
-
-      <button class="btn btn-primary btn-lg shadow"> Products/Services</button>
+      <div class="lead" [innerHTML]="offeringData['content']"></div>
+      <button class="btn btn-primary btn-lg shadow" routerLink="/offerings"> Products/Services</button>
     </div>
   </div>
 </div>
@@ -79,74 +78,24 @@
 <!-- three coloumn -->
 <div class="container-fluid">
   <div class="row text-center ">
-    <div class="col-xs-12 col-sm-6  col-md-6 col-lg-3 col-xl-3 pt-4">
+
+
+    <div class="col-xs-12 col-sm-6  col-md-6 col-lg-3 col-xl-3 pt-4" *ngFor="let element of offeringDataCard"
+      (click)="onOfferingSelect(element['id'])">
       <div class="card bg-dark text-white">
-        <img src="../../assets/static_images/1.jpg" class="card-img" alt="...">
+        <img [src]="element['downloadURL']" class="card-img" [alt]="element['name']">
         <div class="card-img-overlay">
-          <h5 class="card-title">Hajmola</h5>
+          <h5 class="card-title">{{element['name']}}</h5>
         </div>
         <div class="card-content">
           <p class="pt-3">
-            this is nice service or product what ever!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, nemo ut? Deleniti fugiat voluptatem
-            obcaecati voluptatum ducimus iusto inventore, adipisci repellendus ab provident suscipit libero quaerat,
-            odio
-            laborum aliquid beatae!
+            {{element['shortDescription']}}
           </p>
         </div>
       </div>
     </div>
-    <div class="col-xs-12 col-sm-6  col-md-6 col-lg-3 col-xl-3 pt-4">
-      <div class="card bg-dark text-white">
-        <img src="../../assets/static_images/1.jpg" class="card-img" alt="...">
-        <div class="card-img-overlay">
-          <h5 class="card-title">iphone</h5>
-        </div>
-        <div class="card-content">
-          <p class="pt-3">
-            this is nice service or product what ever!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, nemo ut? Deleniti fugiat voluptatem
-            obcaecati voluptatum ducimus iusto inventore, adipisci repellendus ab provident suscipit libero quaerat,
-            odio
-            laborum aliquid beatae!
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-6  col-md-6 col-lg-3 col-xl-3 pt-4">
-      <div class="card bg-dark text-white">
-        <img src="../../assets/static_images/1.jpg" class="card-img" alt="...">
-        <div class="card-img-overlay">
-          <h5 class="card-title"> Mo:Mo:</h5>
-        </div>
-        <div class="card-content">
-          <p class="pt-3">
-            this is nice service or product what ever!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, nemo ut? Deleniti fugiat voluptatem
-            obcaecati voluptatum ducimus iusto inventore, adipisci repellendus ab provident suscipit libero quaerat,
-            odio
-            laborum aliquid beatae!
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="col-xs-12 col-sm-6  col-md-6 col-lg-3 col-xl-3 pt-4">
-      <div class="card bg-dark text-white">
-        <img src="../../assets/static_images/1.jpg" class="card-img" alt="...">
-        <div class="card-img-overlay">
-          <h5 class="card-title">Khorsani</h5>
-        </div>
-        <div class="card-content">
-          <p class="pt-3">
-            this is nice service or product what ever!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam, nemo ut? Deleniti fugiat voluptatem
-            obcaecati voluptatum ducimus iusto inventore, adipisci repellendus ab provident suscipit libero quaerat,
-            odio
-            laborum aliquid beatae!
-          </p>
-        </div>
-      </div>
-    </div>
+
+
   </div>
   <hr class="my-4">
 
@@ -182,8 +131,8 @@
 <div class="container padding">
   <div class="row padding align-items-center">
     <div class="col-lg-6">
-      <h2> {{whyusData.title}}</h2>
-      <div [innerHTML]="whyusData.content">
+      <h2> {{whyusData['title']}}</h2>
+      <div [innerHTML]="whyusData['content']">
 
       </div>
 

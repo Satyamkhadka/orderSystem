@@ -2,14 +2,13 @@
 
 <div class="container-flex mr-3 ml-3 mt-5">
   <div class="row">
-    <div class="col-sm-12 col-lg-12 col-md-12 col-xl-12">
-      <div class="card">
+    <div class="col-12">
+      <div class="card bg-light">
         <div class="card-header">
           <div class="container-flex">
             <div class="row">
               <div class="col-6 mt-1">Product/Services</div>
-              <div class="col-6"> <a [routerLink]="['/add-offering']"
-                  class="btn btn-sm btn-primary text-light float-right">
+              <div class="col-6"> <a routerLink="/add-offering" class="btn btn-sm btn-primary text-light float-right">
                   Add<i class="fa fa-plus pl-2"></i></a></div>
             </div>
           </div>
@@ -20,14 +19,18 @@
 
 
 
-              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3">
-                <div class="card">
-                  <img class="card-img-top" src="../../assets//static_images/2.jpg" alt="Card image cap">
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 mt-5"
+                *ngFor="let element of offeringData; let i = index;">
+                <div class="card border border-info">
+                  <img class="card-img-top pt-1 pl-1 pr-1" [src]="element['downloadURL']" alt="Card image cap">
                   <div class="card-body">
-                    <h5 class="card-title text-center">iPhone</h5>
-                    <a href="#" class="btn btn-success w-50">Edit<i class="fa fa-pencil pl-2"></i></a>
-                    <a href="#" class="btn btn-danger w-50">Delete<i class="fa fa-trash pl-2"></i></a>
-                    <a class="btn btn-warning w-100 mt-1">View<i class="fa fa-eye pl-2"></i></a>
+                    <h5 class="card-title text-center">{{element['name']}}</h5>
+                    <a class="btn btn-success w-50" data-toggle="modal" data-target="#exampleModalCenter"
+                      (click)="setEdit(i)">Edit<i class="fa fa-pencil pl-2"></i></a>
+                    <a class="btn btn-danger w-50" (click)="onDelete(element.id)">Delete<i
+                        class="fa fa-trash pl-2"></i></a>
+                    <a class="btn btn-warning w-100 mt-1" data-toggle="modal" data-target="#viewModalCenter"
+                      (click)="setView(i)">View<i class="fa fa-eye pl-2"></i></a>
                   </div>
                 </div>
               </div>
@@ -38,6 +41,131 @@
         </div>
 
 
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Edit Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">Edit</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="offeringForm">
+          <small class="form-text text-muted"> name </small>
+          <input id="name" type="text" class="form-control mb-2 w-100" placeholder="name" required
+            formControlName="name">
+
+          <small class="form-text text-muted"> price </small>
+          <input id="price" type="text" class="form-control mb-2 w-100" placeholder="price" required
+            formControlName="price">
+
+          <small class="form-text text-muted"> discount </small>
+          <input id="discount" type="number" class="form-control mb-2" placeholder="discount" required
+            formControlName="discount">
+
+          <!-- <small class="form-text text-muted"> name </small>
+          <input id="name" type="text" class="form-control mb-2" placeholder="name" required formControlName="name"> -->
+
+          <small class="form-text text-muted"> shortDescription </small>
+          <input id="shortDescription" type="textarea" class="form-control mb-2" placeholder="shortDescription" required
+            formControlName="shortDescription">
+
+          <small class="form-text text-muted"> keyword </small>
+          <input id="keyword" type="text" class="form-control mb-2" placeholder="keyword" required
+            formControlName="keyword">
+
+          <small class="form-text text-muted"> description </small>
+          <input id="description" type="textarea" class="form-control mb-2" placeholder="description" required
+            formControlName="description">
+
+
+          <small class="form-text text-muted"> category </small>
+          <input id="category" type="text" class="form-control mb-2" placeholder="Category" required
+            formControlName="category">
+
+          <small class="form-text text-muted"> subCategory </small>
+          <input id="subCategory" type="text" class="form-control mb-2" placeholder="subCategory" required
+            formControlName="subCategory">
+          <!-- <div class="custom-file mb-4">
+            <input type="file" class="custom-file-input" id="customFile" accept=".jpg,.jpeg" multiple
+              (change)="preview($event)">
+            <label class="custom-file-label" for="customFile"> {{fileName}}</label>
+          </div> -->
+          <!-- <button class="btn btn-lg btn-primary btn-block mb-1" type="submit"
+            (click)="onOfferingSubmit(offeringForm.value)">Create</button> -->
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onEdit(offeringForm.value)">Save
+          changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- View Modal -->
+<div class="modal fade" id="viewModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+  aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalCenterTitle">{{offeringView['name']}}</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="container-flex">
+          <div class="row">
+
+
+
+            <div class="col-12">
+              <div class="card">
+                <img class="card-img-top" [src]="offeringView['downloadURL']" alt="Card image cap">
+                <div class="card-body">
+                  <h5 class="card-title text-center"></h5>
+                  <a class="btn btn-success w-50" data-toggle="modal" data-target="#exampleModalCenter"
+                    data-dismiss="modal" (click)="setEdit(viewId)">Edit<i class="fa fa-pencil pl-2"></i></a>
+                  <a class="btn btn-danger w-50" data-dismiss="modal" (click)="onDelete(viewId)">Delete<i
+                      class="fa fa-trash pl-2"></i></a>
+
+                  <ul class="list-group">
+                    <li class="list-group-item list-group-item-warning">Price:{{ offeringView['price'] }}</li>
+                    <li class="list-group-item list-group-item-danger">Discount:{{offeringView['discount']}} !</li>
+                    <li class="list-group-item list-group-item-success">
+                      Offer Price: {{offeringView['price']-offeringView['discount']}}</li>
+                    <li class="list-group-item list-group-item-info">{{offeringView['shortDescription']}}</li>
+                    <li class="list-group-item list-group-item-info">Keywords For Search: {{offeringView['keyword']}}
+                    </li>
+                    <li class="list-group-item list-group-item-info" [innerHTML]="offeringView['description']"></li>
+                    <li class="list-group-item list-group-item-info">Category: {{offeringView['category']}}</li>
+                    <li class="list-group-item list-group-item-info">SubCategory: {{offeringView['subCategory']}}</li>
+
+                  </ul>
+                </div>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>

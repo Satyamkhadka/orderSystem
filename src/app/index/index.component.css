@@ -91,3 +91,11 @@ hr.light {
   border-top: 2px solid;
   width: 75%
 }
+
+.card {
+  min-height: 100%;
+}
+
+h5.card-title {
+  text-shadow: 0px 0px 8px teal;
+}
