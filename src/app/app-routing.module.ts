@@ -19,19 +19,46 @@ const belongsToAccount = (next) => hasCustomClaim(`account-${next.params.id}`);
 const router: Routes = [
   { path: '', component: IndexComponent },
   // { path: 'profile', component: AdminNavigationComponent, canActivate: [AuthGuard] },
-  { path: 'company-settings', component: CompanySettingsComponent, canActivate: [AngularFireAuthGuard] },
-  { path: 'about', component: AboutComponent },
-  { path: 'login', component: LoginComponent },
   {
-    path: 'admin', component: OfferingComponent, canActivate: [AngularFireAuthGuard],
+    path: 'company-settings',
+    component: CompanySettingsComponent,
+    canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectUnauthorizedToLogin }
   },
-  { path: 'add-offering', component: AddOfferingComponent, canActivate: [AngularFireAuthGuard] },
-  { path: 'offerings', component: AllOfferingComponent },
-  { path: 'offering', component: OfferingViewComponent },
+  {
+    path: 'about',
+    component: AboutComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
+  },
+  {
+    path: 'admin',
+    component: OfferingComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin }
+  },
+  {
+    path: 'add-offering',
+    component: AddOfferingComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin }
+  },
+  {
+    path: 'offerings',
+    component: AllOfferingComponent
+  },
+  {
+    path: 'offering',
+    component: OfferingViewComponent
+  },
 
 
-  { path: '**', redirectTo: '' }
+  {
+    path: '**',
+    redirectTo: ''
+  }
 ];
 
 export const routes: ModuleWithProviders = RouterModule.forRoot(router, { useHash: true, scrollPositionRestoration: 'enabled' });
