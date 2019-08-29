@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   constructor(public fireauthService: FireauthService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    this.toForward = this.route.snapshot.queryParams['returnUrl'] || '/';
+    this.toForward = this.route.snapshot.queryParams['returnUrl'] || '/admin';
   }
   async google() {
     await this.fireauthService.doGoogleLogin().then(data => {
