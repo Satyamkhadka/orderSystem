@@ -1,6 +1,8 @@
 # OrderSystem
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
+ Angular and firebase based ecommerce project. 
+ With a backend control panel for adding products and descriptions.
+ example deployed in : https://mrenterprises.com.np
 
 ## Development server
 
